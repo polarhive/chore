@@ -13,6 +13,17 @@ $ chore -h
   -s: force sync
 ```
 
+## compile
+
+```
+make
+cd bin
+```
+
+```
+./chore
+```
+
 ---
 This repo is hosted on [Codeberg](https://codeberg.org/polarhive/chore) & mirrored to [GitHub](https://github.com/polarhive/chore) for traffic.
 

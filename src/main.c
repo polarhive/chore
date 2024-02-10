@@ -3,7 +3,11 @@
 #include <stdlib.h>
 
 void listTasks() {
-    FILE *file = fopen("~/.local/share/chore/tasks.txt", "r");
+    char homeDir[100];
+    strcpy(homeDir, getenv("HOME"));
+    char filePath[150];
+    sprintf(filePath, "%s/.local/share/chore/tasks.txt", homeDir);
+    FILE *file = fopen(filePath, "r");
     if (file != NULL) {
         printf("Tasks for the day:\n\n");
         char line[100];
@@ -17,8 +21,13 @@ void listTasks() {
     }
 }
 
+
 void addTasks(char description[], int priority) {
-    FILE *file = fopen("~/.local/share/chore/tasks.txt", "a");
+    char homeDir[100];
+    strcpy(homeDir, getenv("HOME"));
+    char filePath[150];
+    sprintf(filePath, "%s/.local/share/chore/tasks.txt", homeDir);
+    FILE *file = fopen(filePath, "a");
     if (file != NULL) {
         fprintf(file, "%s, %d\n", description, priority);
         fclose(file);
